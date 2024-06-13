@@ -8,6 +8,9 @@ const {
 } = process.env;
 
 const loggerReader = (request, response, next) => {
+  const{reader_id} = request.params;
+  //  reader.findById(reader_id);
+
     console.log(`Адрес данного читателя: ${API_URL}:${PORT}/readers/${reader_id}`);
     next();
 }

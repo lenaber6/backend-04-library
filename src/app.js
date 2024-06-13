@@ -7,6 +7,9 @@ const userRouter = require("./routes/users");
 const bookRouter = require("./routes/books");
 const loggerReader = require("./middlewares/loggerReader");
 const loggerBook = require("./middlewares/loggerBook");
+const readerSchema = require("./models/reader");
+const bookSchema = require("./models/book");
+
 
 dotenv.config();
 
@@ -27,8 +30,9 @@ console.log("Connected to MongoDb");
 const app = express();
 
 // app.use(cors);
-app.use(loggerBook);
 app.use(loggerReader);
+app.use(loggerBook);
+
 
 app.use(bodyParser.json());
 
