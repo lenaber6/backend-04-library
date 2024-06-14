@@ -41,14 +41,7 @@ const helloWorld = (request, response) => {
   response.status(200);
   response.send("Hello, World!!!!!!");
 
-  if (!readerSchema || !bookSchema) {
-    response.statusCode = 404;
-    response.statusMessage = "Bad Request";
-    response.setHeader("Content-Type", "application/json");
-    response.write("Читатель или книга не найдены");
-    response.end();
-    return;
-  } else if (!userRouter || !bookRouter) {
+  if (!userRouter || !bookRouter) {
     response.statusCode = 404;
     response.statusMessage = "Bad Request";
     response.setHeader("Content-Type", "application/json");

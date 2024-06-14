@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const readerSchema = new mongoose.Schema({
     name: {
         type: String,
-        requied: true, // Является обязательным
+        required: true, // Является обязательным
         minlength: 2,
     },
     lastName: {
         type: String,
-        requied: true,
+        required: true,
         minlength: 2,
     },
     userName: {
         type: String,
-        requied: true,
+        required: true,
         minlength: 5,  
     },
     books: {
