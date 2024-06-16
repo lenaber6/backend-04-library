@@ -7,8 +7,7 @@ const userRouter = require("./routes/users");
 const bookRouter = require("./routes/books");
 const loggerReader = require("./middlewares/loggerReader");
 const loggerBook = require("./middlewares/loggerBook");
-const readerSchema = require("./models/reader");
-const bookSchema = require("./models/book");
+
 
 
 dotenv.config();
