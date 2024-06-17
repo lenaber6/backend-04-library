@@ -7,7 +7,7 @@ const getBooks = (request, response) => {
   return Book.find({})
     .then((data) => {
       if (!data) {
-        response.status(404).send("Такие книги не найдены");
+       return response.status(404).send("Такие книги не найдены");
       }
       response.status(200).send(data);
     })
@@ -23,7 +23,7 @@ const getBook = (request, response) => {
   return Book.findById(book_id)
     .then((book) => {
       if (!book) {
-        response.status(404).send("Книга не найдена");
+       return response.status(404).send("Книга не найдена");
       }
       response.status(200).send(book);
     })
@@ -37,7 +37,7 @@ const createBook = (request, response) => {
   // Create new book
   return Book.create({ ...request.body })
     .then((book) => {
-      response.status(201).send(book);
+     return response.status(201).send(book);
     })
     .catch((e) => {
       response.status(500).send(e.message);
@@ -54,7 +54,7 @@ const updateBook = (request, response) => {
   })
     .then((book) => {
       if (!book) {
-        response.status(404).send("Книга не найдена");
+       return response.status(404).send("Книга не найдена");
       }
       response.status(200).send(book);
     })
@@ -70,7 +70,7 @@ const deleteBook = (request, response) => {
   return Book.findByIdAndDelete(book_id)
     .then((book) => {
       if (!book) {
-        response.status(404).send("Книга не найдена");
+       return response.status(404).send("Книга не найдена");
       }
       response.status(200).send("Book deleted");
     })

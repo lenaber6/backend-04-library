@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-// const cors = require('cors');
+const cors = require('cors');
 const mongoose = require("mongoose");
 const userRouter = require("./routes/users");
 const bookRouter = require("./routes/books");
@@ -28,7 +28,7 @@ console.log("Connected to MongoDb");
 
 const app = express();
 
-// app.use(cors);
+app.use(cors());
 app.use(loggerReader);
 app.use(loggerBook);
 

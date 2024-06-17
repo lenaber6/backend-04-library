@@ -7,7 +7,7 @@ const getReaders = (request, response) => {
     return Reader.find({})
       .then((data) => {
         if (!data) { // Если результат вызова null, то возвращаем статус 404
-          response.status(404).send("Читатели не найдены"); 
+          return response.status(404).send("Читатели не найдены"); 
         }
         response.status(200).send(data);
       })
@@ -24,7 +24,7 @@ const getReader = (request, response) => {
     return Reader.findById(reader_id)
       .then((user) => {
         if(!user) {
-          response.status(404).send("Читатель не найден");
+         return response.status(404).send("Читатель не найден");
         }
         response.status(200).send(user);
       })
@@ -40,7 +40,7 @@ const createReader = (request, response) => {
   // response.send(request.body);
   return Reader.create({ ...request.body })
     .then((user) => {
-      response.status(201).send(user);
+      return response.status(201).send(user);
     })
     .catch((e) => {
       response.status(500).send(e.message);
@@ -57,7 +57,7 @@ const updateReader = (request, response) => {
     })
       .then((user) => {
         if (!user) {
-          response.status(404).send("Читатель не найден");
+         return response.status(404).send("Читатель не найден");
         }
         response.status(200).send(user);
       })
@@ -72,7 +72,7 @@ const deleteReader = (request, response) => {
     return Reader.findByIdAndDelete(reader_id)
       .then((user) => {
         if (!user) {
-          response.status(404).send("Читатель не найден");
+         return response.status(404).send("Читатель не найден");
         }
         response.status(200).send("Reader deleted");
       })
